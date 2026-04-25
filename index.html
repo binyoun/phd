@@ -98,8 +98,9 @@
     .nav-links a.active[data-s="gap"]       { color: var(--c-gap); border-bottom-color: var(--c-gap); }
     .nav-links a.active[data-s="questions"] { color: var(--c-q);   border-bottom-color: var(--c-q); }
     .nav-links a.active[data-s="framework"] { color: var(--c-fw);  border-bottom-color: var(--c-fw); }
-    .nav-links a.active[data-s="works"]     { color: var(--ink);   border-bottom-color: var(--ink15); }
-    .nav-links a.active[data-s="fit"]       { color: var(--ink45); border-bottom-color: var(--ink15); }
+    .nav-links a.active[data-s="works"]      { color: var(--ink);   border-bottom-color: var(--ink15); }
+    .nav-links a.active[data-s="researcher"] { color: var(--ink45); border-bottom-color: var(--ink15); }
+    .nav-links a.active[data-s="fit"]        { color: var(--ink45); border-bottom-color: var(--ink15); }
 
     /* ── HERO ── */
     .hero {
@@ -543,6 +544,64 @@
       100% { transform: scale(4); opacity: 0; }
     }
 
+    /* ── RESEARCHER ── */
+    .res-grid { display: flex; flex-direction: column; }
+
+    .res-item {
+      display: grid;
+      grid-template-columns: 210px 1fr;
+      gap: 2.5rem;
+      padding: 1.8rem 0;
+      border-bottom: 1px solid var(--ink08);
+      align-items: start;
+    }
+    .res-item:last-child { border-bottom: none; }
+
+    .res-label {
+      font-family: var(--heading);
+      font-size: .85rem;
+      font-weight: 600;
+      color: var(--ink);
+      line-height: 1.35;
+    }
+    .res-sub {
+      font-family: var(--mono);
+      font-size: .4rem;
+      letter-spacing: .12em;
+      color: var(--ink30);
+      margin-top: .35rem;
+      line-height: 1.6;
+    }
+    .res-body {
+      font-size: .875rem;
+      color: var(--ink60);
+      line-height: 1.85;
+    }
+    .res-body strong { color: var(--ink); font-weight: 500; }
+
+    .res-traj {
+      display: flex;
+      gap: .5rem;
+      flex-wrap: wrap;
+      align-items: center;
+      margin-top: .4rem;
+    }
+    .res-traj-city {
+      font-family: var(--heading);
+      font-size: .82rem;
+      font-weight: 600;
+      color: var(--ink);
+    }
+    .res-traj-sep {
+      font-family: var(--mono);
+      font-size: .6rem;
+      color: var(--ink30);
+    }
+
+    @media (max-width: 640px) {
+      .res-item { grid-template-columns: 1fr; gap: .5rem; }
+    }
+
     /* ── FIT ── */
     .fit-text {
       font-size: 1rem;
@@ -612,8 +671,9 @@
     <li><a href="#gap"       data-s="gap">Gap</a></li>
     <li><a href="#questions" data-s="questions">Questions</a></li>
     <li><a href="#framework" data-s="framework">Framework</a></li>
-    <li><a href="#works"     data-s="works">Works</a></li>
-    <li><a href="#fit"       data-s="fit">Fit</a></li>
+    <li><a href="#works"      data-s="works">Works</a></li>
+    <li><a href="#researcher" data-s="researcher">Researcher</a></li>
+    <li><a href="#fit"        data-s="fit">Fit</a></li>
   </ul>
 </nav>
 
@@ -819,6 +879,67 @@
       </div>
     </div>
     <p class="works-note">Further installations to be developed during candidature.</p>
+  </div>
+</section>
+
+<!-- RESEARCHER -->
+<section id="researcher">
+  <div class="container rv">
+    <span class="s-label dim">Researcher</span>
+    <div class="res-grid">
+
+      <div class="res-item">
+        <div>
+          <div class="res-label">수지침</div>
+          <div class="res-sub">Hand Acupuncture · 3 years</div>
+        </div>
+        <p class="res-body">East Asian medical practice studied for three years from age thirteen. The diagnostic logic of 수지침 — reading the body through relational pressure points, not isolated data — is the direct source of the sensing logic in Circulation. <strong>The cosmotechnics claim is learned in the hands, not in books.</strong></p>
+      </div>
+
+      <div class="res-item">
+        <div>
+          <div class="res-label">Percussion Ensemble</div>
+          <div class="res-sub">4 instruments · 2 years · Foreign Language High School</div>
+        </div>
+        <p class="res-body">Two years playing four percussion instruments in ensemble. Collective rhythm, shared timing, and the experience of synchronisation as a felt condition — not a technical state. The core interaction logic of Circulation begins here: three bodies finding a shared pulse.</p>
+      </div>
+
+      <div class="res-item">
+        <div>
+          <div class="res-label">명리학 / 유교사상</div>
+          <div class="res-sub">Four Pillars Cosmology · Confucian Thought</div>
+        </div>
+        <p class="res-body">Formal study of 명리학 (Four Pillars of Destiny) and 유교사상 (Confucian thought), including the Neo-Confucian debate between 퇴계 (Toegye) and 율곡 (Yulgok) on 사단칠정. The Five Elements (오행) as a living cosmological system — not a borrowed aesthetic. <strong>This is prior formation, not theoretical framework.</strong></p>
+      </div>
+
+      <div class="res-item">
+        <div>
+          <div class="res-label">성균관대학교</div>
+          <div class="res-sub">Sungkyunkwan University · est. 1398 · Joseon Dynasty</div>
+        </div>
+        <p class="res-body">BA from Korea's oldest university, founded during the Joseon Dynasty as the national Confucian academy. Confucian philosophy studied not as history but as the institution's living foundation. The physical and pedagogical context of study is inseparable from the content.</p>
+      </div>
+
+      <div class="res-item">
+        <div>
+          <div class="res-label">Living Trajectory</div>
+          <div class="res-sub">Transnational · Seoul → Paris → California → Ho Chi Minh City</div>
+        </div>
+        <div>
+          <div class="res-traj">
+            <span class="res-traj-city">Seoul</span>
+            <span class="res-traj-sep">→</span>
+            <span class="res-traj-city">Paris</span>
+            <span class="res-traj-sep">→</span>
+            <span class="res-traj-city">California</span>
+            <span class="res-traj-sep">→</span>
+            <span class="res-traj-city">Ho Chi Minh City</span>
+          </div>
+          <p class="res-body" style="margin-top:.9rem;">Eastern formation, European encounter, American MFA, Southeast Asian research environment. The comparative Asian perspective this research requires is not a positioning choice — it is the structure of a life. HCMC as situated research condition: urban density, hybrid physical-digital life, and a regional cosmotechnical history that includes 오행 through Vietnamese giác hơi.</p>
+        </div>
+      </div>
+
+    </div>
   </div>
 </section>
 
