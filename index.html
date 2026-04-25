@@ -45,7 +45,7 @@
       font-family: var(--body);
       background: var(--bg);
       color: var(--ink);
-      font-size: 14px;
+      font-size: 15px;
       line-height: 1.65;
       -webkit-font-smoothing: antialiased;
       overflow-x: hidden;
@@ -304,14 +304,18 @@
     .q-grid { display: flex; flex-direction: column; }
 
     .q-row {
+      padding: 2.2rem 0;
+      border-bottom: 1px solid var(--ink08);
+    }
+    .q-row:last-child { border-bottom: none; }
+
+    /* What row stays as 2-col grid */
+    .q-what-row {
       display: grid;
       grid-template-columns: 90px 1fr;
       gap: 2.5rem;
-      padding: 2.2rem 0;
-      border-bottom: 1px solid var(--ink08);
       align-items: start;
     }
-    .q-row:last-child { border-bottom: none; }
 
     .q-key {
       font-family: var(--mono);
@@ -324,9 +328,10 @@
     .q-key.what { color: var(--c-q); }
 
     .q-why-text {
-      font-size: .9rem;
+      font-size: 1rem;
       color: var(--ink45);
       line-height: 1.9;
+      padding-top: .8rem;
     }
 
     .q-what-text {
@@ -353,9 +358,10 @@
       display: flex;
       flex-direction: column;
       gap: .9rem;
+      padding-top: .8rem;
     }
     .q-how-list li {
-      font-size: .9rem;
+      font-size: 1rem;
       color: var(--ink45);
       padding-left: 1.2rem;
       position: relative;
@@ -371,7 +377,7 @@
       top: .1rem;
     }
 
-    .q-contrib { display: flex; flex-direction: column; gap: 1.1rem; }
+    .q-contrib { display: flex; flex-direction: column; gap: 1.1rem; padding-top: .8rem; }
     .q-contrib-item strong {
       display: block;
       font-family: var(--heading);
@@ -381,7 +387,7 @@
       margin-bottom: .2rem;
     }
     .q-contrib-item p {
-      font-size: .88rem;
+      font-size: 1rem;
       color: var(--ink45);
       line-height: 1.7;
     }
@@ -390,12 +396,8 @@
     .fw-grid { display: flex; flex-direction: column; margin-bottom: 3.5rem; }
 
     .fw-item {
-      display: grid;
-      grid-template-columns: 210px 1fr;
-      gap: 2.5rem;
       padding: 1.8rem 0;
       border-bottom: 1px solid var(--ink08);
-      align-items: start;
     }
     .fw-item:last-child { border-bottom: none; }
 
@@ -415,9 +417,10 @@
       line-height: 1.6;
     }
     .fw-desc {
-      font-size: .875rem;
+      font-size: 1rem;
       color: var(--ink60);
       line-height: 1.85;
+      padding-top: .9rem;
     }
 
     .method-label {
@@ -522,7 +525,7 @@
       margin-bottom: .8rem;
       line-height: 1.35;
     }
-    .work-desc { font-size: .82rem; color: var(--ink60); line-height: 1.75; }
+    .work-desc { font-size: 1rem; color: var(--ink60); line-height: 1.75; padding-top: .8rem; }
 
     .works-note {
       font-family: var(--mono);
@@ -548,18 +551,14 @@
     .res-grid { display: flex; flex-direction: column; }
 
     .res-item {
-      display: grid;
-      grid-template-columns: 210px 1fr;
-      gap: 2.5rem;
       padding: 1.8rem 0;
       border-bottom: 1px solid var(--ink08);
-      align-items: start;
     }
     .res-item:last-child { border-bottom: none; }
 
     .res-label {
       font-family: var(--heading);
-      font-size: .85rem;
+      font-size: .875rem;
       font-weight: 600;
       color: var(--ink);
       line-height: 1.35;
@@ -573,9 +572,10 @@
       line-height: 1.6;
     }
     .res-body {
-      font-size: .875rem;
+      font-size: 1rem;
       color: var(--ink60);
       line-height: 1.85;
+      padding-top: .9rem;
     }
     .res-body strong { color: var(--ink); font-weight: 500; }
 
@@ -598,10 +598,6 @@
       color: var(--ink30);
     }
 
-    @media (max-width: 640px) {
-      .res-item { grid-template-columns: 1fr; gap: .5rem; }
-    }
-
     /* ── FIT ── */
     .fit-text {
       font-size: 1rem;
@@ -612,6 +608,35 @@
     .fit-text + .fit-text { margin-top: 1.5rem; }
     .fit-name { color: var(--ink); font-weight: 600; }
     .fit-text em { font-style: italic; color: var(--ink45); }
+
+    /* ── TOGGLES ── */
+    .tog-head {
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      cursor: pointer;
+      background: none;
+      border: none;
+      padding: 0;
+      text-align: left;
+      gap: 1rem;
+      color: inherit;
+    }
+    .tog-icon {
+      font-family: var(--mono);
+      font-size: 1.1rem;
+      color: var(--ink30);
+      flex-shrink: 0;
+      line-height: 1;
+      width: 20px;
+      text-align: center;
+    }
+    .tog-body {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height .38s ease;
+    }
 
     /* ── FOOTER ── */
     footer {
@@ -652,8 +677,6 @@
       .nav-links { display: none; }
       .hero-top { padding: 2.5rem 1.5rem 2rem; }
       .container { padding: 0 1.5rem; }
-      .q-row { grid-template-columns: 1fr; gap: .5rem; }
-      .fw-item { grid-template-columns: 1fr; gap: .5rem; }
       .works-grid { grid-template-columns: 1fr; }
       .hero-nav { grid-template-columns: 1fr; }
       .hn-card { border-right: none !important; border-bottom: 1px solid var(--ink08); }
@@ -749,39 +772,54 @@
     <span class="s-label q">Research Questions</span>
     <div class="q-grid">
 
-      <div class="q-row">
-        <span class="q-key">Why</span>
-        <p class="q-why-text">Human-computer interaction has been shaped by Western technological paradigms — efficiency, optimization, human-centered control. Eastern cosmological systems embed a different understanding of how bodies, environments, and technologies meet. This alternative logic has not been translated into participatory media or installation practice.</p>
+      <div class="q-row tog-item">
+        <button class="tog-head" onclick="tog(this)">
+          <span class="q-key">Why</span>
+          <span class="tog-icon">+</span>
+        </button>
+        <div class="tog-body">
+          <p class="q-why-text">Human-computer interaction has been shaped by Western technological paradigms — efficiency, optimization, human-centered control. Eastern cosmological systems embed a different understanding of how bodies, environments, and technologies meet. This alternative logic has not been translated into participatory media or installation practice.</p>
+        </div>
       </div>
 
-      <div class="q-row" id="whatRow">
+      <div class="q-row q-what-row" id="whatRow">
         <span class="q-key what">What</span>
         <p class="q-what-text" id="qWhat"></p>
       </div>
 
-      <div class="q-row">
-        <span class="q-key">How</span>
-        <ul class="q-how-list">
-          <li>How can environmental sensing systems embody cosmological relationality between human and non-human agents?</li>
-          <li>How can participatory installations function as experimental interaction environments?</li>
-          <li>How might non-Western cosmological perspectives challenge dominant human-centered interaction models?</li>
-        </ul>
+      <div class="q-row tog-item">
+        <button class="tog-head" onclick="tog(this)">
+          <span class="q-key">How</span>
+          <span class="tog-icon">+</span>
+        </button>
+        <div class="tog-body">
+          <ul class="q-how-list">
+            <li>How can environmental sensing systems embody cosmological relationality between human and non-human agents?</li>
+            <li>How can participatory installations function as experimental interaction environments?</li>
+            <li>How might non-Western cosmological perspectives challenge dominant human-centered interaction models?</li>
+          </ul>
+        </div>
       </div>
 
-      <div class="q-row">
-        <span class="q-key">Contribution</span>
-        <div class="q-contrib">
-          <div class="q-contrib-item">
-            <strong>Theoretical</strong>
-            <p>Extending cosmotechnics into interaction design discourse — establishing non-Western technics as a legitimate design paradigm.</p>
-          </div>
-          <div class="q-contrib-item">
-            <strong>Methodological</strong>
-            <p>A practice-based framework integrating media art, cosmotechnical philosophy, and feminist STS as a model for future research.</p>
-          </div>
-          <div class="q-contrib-item">
-            <strong>Practical</strong>
-            <p>New models for participatory interactive environments that use sensing technologies to enact relational, care-based interaction.</p>
+      <div class="q-row tog-item">
+        <button class="tog-head" onclick="tog(this)">
+          <span class="q-key">Contribution</span>
+          <span class="tog-icon">+</span>
+        </button>
+        <div class="tog-body">
+          <div class="q-contrib">
+            <div class="q-contrib-item">
+              <strong>Theoretical</strong>
+              <p>Extending cosmotechnics into interaction design discourse — establishing non-Western technics as a legitimate design paradigm.</p>
+            </div>
+            <div class="q-contrib-item">
+              <strong>Methodological</strong>
+              <p>A practice-based framework integrating media art, cosmotechnical philosophy, and feminist STS as a model for future research.</p>
+            </div>
+            <div class="q-contrib-item">
+              <strong>Practical</strong>
+              <p>New models for participatory interactive environments that use sensing technologies to enact relational, care-based interaction.</p>
+            </div>
           </div>
         </div>
       </div>
@@ -795,26 +833,41 @@
   <div class="container rv">
     <span class="s-label fw">Theoretical Framework</span>
     <div class="fw-grid">
-      <div class="fw-item">
-        <div>
-          <div class="fw-name">Cosmotechnics</div>
-          <div class="fw-author">Yuk Hui</div>
+      <div class="fw-item tog-item">
+        <button class="tog-head" onclick="tog(this)">
+          <div>
+            <div class="fw-name">Cosmotechnics</div>
+            <div class="fw-author">Yuk Hui</div>
+          </div>
+          <span class="tog-icon">+</span>
+        </button>
+        <div class="tog-body">
+          <p class="fw-desc">Technology is cosmologically situated — never neutral. Eastern technics are organised around qi, circulation, and elemental correspondence rather than efficiency and control. 오행 (Five Elements) is not metaphor: a functional technical system with its own diagnostic and responsive logic.</p>
         </div>
-        <p class="fw-desc">Technology is cosmologically situated — never neutral. Eastern technics are organised around qi, circulation, and elemental correspondence rather than efficiency and control. 오행 (Five Elements) is not metaphor: a functional technical system with its own diagnostic and responsive logic.</p>
       </div>
-      <div class="fw-item">
-        <div>
-          <div class="fw-name">Feminist STS</div>
-          <div class="fw-author">Haraway · Suchman · Puig de la Bellacasa</div>
+      <div class="fw-item tog-item">
+        <button class="tog-head" onclick="tog(this)">
+          <div>
+            <div class="fw-name">Feminist STS</div>
+            <div class="fw-author">Haraway · Suchman · Puig de la Bellacasa</div>
+          </div>
+          <span class="tog-icon">+</span>
+        </button>
+        <div class="tog-body">
+          <p class="fw-desc">Technology as value-embedded, relational practice. Situated knowledge over claimed objectivity. Care, interdependence, and maintenance as design values rather than efficiency and optimization. Interaction as a distributed network of relations, not a discrete interface.</p>
         </div>
-        <p class="fw-desc">Technology as value-embedded, relational practice. Situated knowledge over claimed objectivity. Care, interdependence, and maintenance as design values rather than efficiency and optimization. Interaction as a distributed network of relations, not a discrete interface.</p>
       </div>
-      <div class="fw-item">
-        <div>
-          <div class="fw-name">Posthumanism /<br>New Materialism</div>
-          <div class="fw-author">Barad · Braidotti</div>
+      <div class="fw-item tog-item">
+        <button class="tog-head" onclick="tog(this)">
+          <div>
+            <div class="fw-name">Posthumanism / New Materialism</div>
+            <div class="fw-author">Barad · Braidotti</div>
+          </div>
+          <span class="tog-icon">+</span>
+        </button>
+        <div class="tog-body">
+          <p class="fw-desc">Human and nonhuman agency as distributed and entangled. Environment as participant, not backdrop. Matter has agency. Interaction understood as ecological entanglement rather than subject-object exchange.</p>
         </div>
-        <p class="fw-desc">Human and nonhuman agency as distributed and entangled. Environment as participant, not backdrop. Matter has agency. Interaction understood as ecological entanglement rather than subject-object exchange.</p>
       </div>
     </div>
 
@@ -867,15 +920,29 @@
     </div>
 
     <div class="works-grid">
-      <div class="work-card rcard">
-        <span class="work-tag">The Universe</span>
-        <div class="work-title">Øryn / 륜</div>
-        <p class="work-desc">An AI-assisted media entity and relational archive being — built from East Asian cosmology and speculative ecology. Distributed across generative image, XR, voice, and installation. Not a character: a post-human presence and research vehicle. The universe within which the PhD practice operates.</p>
+      <div class="work-card rcard tog-item">
+        <button class="tog-head" onclick="tog(this)">
+          <div>
+            <span class="work-tag">The Universe</span>
+            <div class="work-title">Øryn / 륜</div>
+          </div>
+          <span class="tog-icon">+</span>
+        </button>
+        <div class="tog-body">
+          <p class="work-desc">An AI-assisted media entity and relational archive being — built from East Asian cosmology and speculative ecology. Distributed across generative image, XR, voice, and installation. Not a character: a post-human presence and research vehicle. The universe within which the PhD practice operates.</p>
+        </div>
       </div>
-      <div class="work-card rcard">
-        <span class="work-tag">Gear One · SCD Seed Funded 2026</span>
-        <div class="work-title">Circulation: A Triadic Interactive System Inspired by Cupping Therapy</div>
-        <p class="work-desc">Three handheld sensing devices inspired by cupping therapy (부항 / giác hơi). Each maps participant pulse and pressure to Five Elements (오행) colour logic — not Western RGB. Collective synchronisation shifts the room's ambient field. Cosmotechnics as interaction design. Presented VFCD September 2026.</p>
+      <div class="work-card rcard tog-item">
+        <button class="tog-head" onclick="tog(this)">
+          <div>
+            <span class="work-tag">Gear One · SCD Seed Funded 2026</span>
+            <div class="work-title">Circulation: A Triadic Interactive System Inspired by Cupping Therapy</div>
+          </div>
+          <span class="tog-icon">+</span>
+        </button>
+        <div class="tog-body">
+          <p class="work-desc">Three handheld sensing devices inspired by cupping therapy (부항 / giác hơi). Each maps participant pulse and pressure to Five Elements (오행) colour logic — not Western RGB. Collective synchronisation shifts the room's ambient field. Cosmotechnics as interaction design. Presented VFCD September 2026.</p>
+        </div>
       </div>
     </div>
     <p class="works-note">Further installations to be developed during candidature.</p>
@@ -888,53 +955,81 @@
     <span class="s-label dim">Researcher</span>
     <div class="res-grid">
 
-      <div class="res-item">
-        <div>
-          <div class="res-label">수지침</div>
-          <div class="res-sub">Hand Acupuncture · 3 years</div>
+      <div class="res-item tog-item">
+        <button class="tog-head" onclick="tog(this)">
+          <div>
+            <div class="res-label">수지침</div>
+            <div class="res-sub">Hand Acupuncture · 3 years</div>
+          </div>
+          <span class="tog-icon">+</span>
+        </button>
+        <div class="tog-body">
+          <p class="res-body">East Asian medical practice studied for three years from age thirteen. The diagnostic logic of 수지침 — reading the body through relational pressure points, not isolated data — is the direct source of the sensing logic in Circulation. <strong>The cosmotechnics claim is learned in the hands, not in books.</strong></p>
         </div>
-        <p class="res-body">East Asian medical practice studied for three years from age thirteen. The diagnostic logic of 수지침 — reading the body through relational pressure points, not isolated data — is the direct source of the sensing logic in Circulation. <strong>The cosmotechnics claim is learned in the hands, not in books.</strong></p>
       </div>
 
-      <div class="res-item">
-        <div>
-          <div class="res-label">사물놀이</div>
-          <div class="res-sub">Korean Traditional Percussion · 4 instruments · 2 years · Foreign Language High School</div>
+      <div class="res-item tog-item">
+        <button class="tog-head" onclick="tog(this)">
+          <div>
+            <div class="res-label">사물놀이</div>
+            <div class="res-sub">Korean Traditional Percussion · 4 instruments · 2 years · Foreign Language High School</div>
+          </div>
+          <span class="tog-icon">+</span>
+        </button>
+        <div class="tog-body">
+          <p class="res-body">Two years playing 사물놀이 — 꽹과리 (thunder), 징 (wind), 장구 (rain), 북 (cloud). The four instruments map to cosmic elements; ensemble performance is collective cosmological ordering through rhythm. <strong>사물놀이 is a cosmotechnical practice.</strong> The sensing and synchronisation logic of Circulation — three bodies finding a shared pulse — has its earliest form here.</p>
         </div>
-        <p class="res-body">Two years playing 사물놀이 — 꽹과리 (thunder), 징 (wind), 장구 (rain), 북 (cloud). The four instruments map to cosmic elements; ensemble performance is collective cosmological ordering through rhythm. <strong>사물놀이 is a cosmotechnical practice.</strong> The sensing and synchronisation logic of Circulation — three bodies finding a shared pulse — has its earliest form here.</p>
       </div>
 
-      <div class="res-item">
-        <div>
-          <div class="res-label">명리학 / 유교사상</div>
-          <div class="res-sub">Four Pillars Cosmology · Confucian Thought</div>
+      <div class="res-item tog-item">
+        <button class="tog-head" onclick="tog(this)">
+          <div>
+            <div class="res-label">명리학 / 유교사상</div>
+            <div class="res-sub">Four Pillars Cosmology · Confucian Thought</div>
+          </div>
+          <span class="tog-icon">+</span>
+        </button>
+        <div class="tog-body">
+          <p class="res-body">Formal study of 명리학 (Four Pillars of Destiny) and 유교사상 (Confucian thought), including the Neo-Confucian debate between 퇴계 (Toegye) and 율곡 (Yulgok) on 사단칠정. The Five Elements (오행) as a living cosmological system — not a borrowed aesthetic. <strong>This is prior formation, not theoretical framework.</strong></p>
         </div>
-        <p class="res-body">Formal study of 명리학 (Four Pillars of Destiny) and 유교사상 (Confucian thought), including the Neo-Confucian debate between 퇴계 (Toegye) and 율곡 (Yulgok) on 사단칠정. The Five Elements (오행) as a living cosmological system — not a borrowed aesthetic. <strong>This is prior formation, not theoretical framework.</strong></p>
       </div>
 
-      <div class="res-item">
-        <div>
-          <div class="res-label">성균관대학교</div>
-          <div class="res-sub">Sungkyunkwan University · est. 1398 · BA in Consumer and Family Sciences + Business (Marketing)</div>
+      <div class="res-item tog-item">
+        <button class="tog-head" onclick="tog(this)">
+          <div>
+            <div class="res-label">성균관대학교</div>
+            <div class="res-sub">Sungkyunkwan University · est. 1398 · BA in Consumer and Family Sciences + Business (Marketing)</div>
+          </div>
+          <span class="tog-icon">+</span>
+        </button>
+        <div class="tog-body">
+          <p class="res-body">BA at Korea's oldest university — founded 1398 as the national Confucian academy of the Joseon Dynasty. Double focus in Consumer and Family Sciences and Business (marketing): not a humanities programme, but an institution whose entire architecture, ritual calendar, and institutional identity are Confucian. The formation is environmental. 유교사상 and 명리학 were absorbed through living inside that context and through personal study — not through a curriculum.</p>
         </div>
-        <p class="res-body">BA at Korea's oldest university — founded 1398 as the national Confucian academy of the Joseon Dynasty. Double focus in Consumer and Family Sciences and Business (marketing): not a humanities programme, but an institution whose entire architecture, ritual calendar, and institutional identity are Confucian. The formation is environmental. 유교사상 and 명리학 were absorbed through living inside that context and through personal study — not through a curriculum.</p>
       </div>
 
-      <div class="res-item">
-        <div>
-          <div class="res-label">MFA in Studio Arts</div>
-          <div class="res-sub">CSULB · Photography · 2023</div>
+      <div class="res-item tog-item">
+        <button class="tog-head" onclick="tog(this)">
+          <div>
+            <div class="res-label">MFA in Studio Arts</div>
+            <div class="res-sub">CSULB · Photography · 2023</div>
+          </div>
+          <span class="tog-icon">+</span>
+        </button>
+        <div class="tog-body">
+          <p class="res-body"><em>Reimagining Communities: Poetic Spaces of Light, Movement, and Language in Collective Experience</em> — the MFA practice investigated <strong>Korean diaspora through poetic lighting and linguistic encounter</strong>. Light as cultural memory. Language as embodied technics. Communal space as the site where identity is collectively negotiated. The move from diaspora poetics to cosmotechnical installation is not a departure: it extends the same inquiry into the relational logic underneath cultural formation.</p>
         </div>
-        <p class="res-body"><em>Reimagining Communities: Poetic Spaces of Light, Movement, and Language in Collective Experience</em> — the MFA practice investigated <strong>Korean diaspora through poetic lighting and linguistic encounter</strong>. Light as cultural memory. Language as embodied technics. Communal space as the site where identity is collectively negotiated. The move from diaspora poetics to cosmotechnical installation is not a departure: it extends the same inquiry into the relational logic underneath cultural formation.</p>
       </div>
 
-      <div class="res-item">
-        <div>
-          <div class="res-label">Living Trajectory</div>
-          <div class="res-sub">Transnational · Seoul → Paris → California → Ho Chi Minh City</div>
-        </div>
-        <div>
-          <div class="res-traj">
+      <div class="res-item tog-item">
+        <button class="tog-head" onclick="tog(this)">
+          <div>
+            <div class="res-label">Living Trajectory</div>
+            <div class="res-sub">Transnational · Seoul → Paris → California → Ho Chi Minh City</div>
+          </div>
+          <span class="tog-icon">+</span>
+        </button>
+        <div class="tog-body">
+          <div class="res-traj" style="padding-top:.9rem;">
             <span class="res-traj-city">Seoul</span>
             <span class="res-traj-sep">→</span>
             <span class="res-traj-city">Paris</span>
@@ -943,7 +1038,7 @@
             <span class="res-traj-sep">→</span>
             <span class="res-traj-city">Ho Chi Minh City</span>
           </div>
-          <p class="res-body" style="margin-top:.9rem;">Eastern formation, European encounter, American MFA, Southeast Asian research environment. The comparative Asian perspective this research requires is not a positioning choice — it is the structure of a life. HCMC as situated research condition: urban density, hybrid physical-digital life, and a regional cosmotechnical history that includes 오행 through Vietnamese giác hơi.</p>
+          <p class="res-body">Eastern formation, European encounter, American MFA, Southeast Asian research environment. The comparative Asian perspective this research requires is not a positioning choice — it is the structure of a life. HCMC as situated research condition: urban density, hybrid physical-digital life, and a regional cosmotechnical history that includes 오행 through Vietnamese giác hơi.</p>
         </div>
       </div>
 
@@ -969,6 +1064,21 @@
 </footer>
 
 <script>
+  function tog(btn) {
+    const item = btn.closest('.tog-item');
+    const body = item.querySelector('.tog-body');
+    const icon = btn.querySelector('.tog-icon');
+    if (item.classList.contains('open')) {
+      body.style.maxHeight = '0';
+      item.classList.remove('open');
+      icon.textContent = '+';
+    } else {
+      body.style.maxHeight = body.scrollHeight + 'px';
+      item.classList.add('open');
+      icon.textContent = '−';
+    }
+  }
+
   function gotoSection(id) {
     document.getElementById(id).scrollIntoView({ behavior: 'smooth', block: 'start' });
   }
