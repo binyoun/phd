@@ -1,0 +1,608 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bin Youn — PhD Research Pitch</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=Space+Mono:wght@400;700&family=Inter:wght@400;500&display=swap" rel="stylesheet">
+    <style>
+        *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+        :root {
+            --bg:       #f5f2ec;
+            --text:     #1a1a18;
+            --accent:   #2d5a3d;
+            --muted:    #8a8a82;
+            --border:   #d8d4cc;
+            --card-bg:  #eeeae2;
+        }
+
+        html { font-size: 16px; scroll-behavior: smooth; }
+
+        body {
+            font-family: 'Inter', system-ui, sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.7;
+        }
+
+        /* NAV */
+        nav {
+            position: fixed;
+            top: 0; left: 0; right: 0;
+            z-index: 100;
+            padding: 1.2rem 2.5rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: var(--bg);
+            border-bottom: 1px solid var(--border);
+        }
+
+        .nav-name {
+            font-family: 'Syne', sans-serif;
+            font-size: 0.9rem;
+            font-weight: 700;
+            color: var(--text);
+            letter-spacing: 0.02em;
+        }
+
+        .nav-label {
+            font-family: 'Space Mono', monospace;
+            font-size: 0.5rem;
+            letter-spacing: 0.25em;
+            text-transform: uppercase;
+            color: var(--muted);
+        }
+
+        /* MAIN */
+        main { padding-top: 4rem; }
+
+        /* CONTAINER */
+        .container {
+            max-width: 760px;
+            margin: 0 auto;
+            padding: 0 2.5rem;
+        }
+
+        /* SECTION LABEL */
+        .section-label {
+            font-family: 'Space Mono', monospace;
+            font-size: 0.5rem;
+            letter-spacing: 0.3em;
+            text-transform: uppercase;
+            color: var(--accent);
+            display: block;
+            margin-bottom: 1.2rem;
+        }
+
+        /* HERO */
+        .hero {
+            min-height: calc(100vh - 4rem);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            padding: 6rem 2.5rem 4rem;
+            max-width: 760px;
+            margin: 0 auto;
+        }
+
+        .hero-title {
+            font-family: 'Syne', sans-serif;
+            font-size: clamp(3rem, 8vw, 5.5rem);
+            font-weight: 800;
+            line-height: 1.0;
+            color: var(--text);
+            margin-bottom: 2rem;
+            letter-spacing: -0.02em;
+        }
+
+        .hero-title em {
+            font-style: normal;
+            color: var(--accent);
+        }
+
+        .hero-identity {
+            font-family: 'Inter', sans-serif;
+            font-size: 1rem;
+            line-height: 1.7;
+            color: var(--text);
+            max-width: 540px;
+            margin-bottom: 3rem;
+        }
+
+        .hero-meta {
+            display: flex;
+            gap: 2.5rem;
+            flex-wrap: wrap;
+        }
+
+        .hero-meta-item {
+            font-family: 'Space Mono', monospace;
+            font-size: 0.45rem;
+            letter-spacing: 0.25em;
+            text-transform: uppercase;
+            color: var(--muted);
+        }
+
+        .hero-meta-item span {
+            display: block;
+            font-size: 0.6rem;
+            color: var(--text);
+            margin-top: 0.35rem;
+            letter-spacing: 0.05em;
+            font-family: 'Inter', sans-serif;
+        }
+
+        /* SECTION */
+        section {
+            padding: 5rem 0;
+            border-top: 1px solid var(--border);
+        }
+
+        /* QUESTION */
+        .question-primary {
+            font-family: 'Syne', sans-serif;
+            font-size: clamp(1.25rem, 3vw, 1.7rem);
+            font-weight: 600;
+            line-height: 1.4;
+            color: var(--text);
+            margin-bottom: 2.5rem;
+            padding-left: 1.5rem;
+            border-left: 3px solid var(--accent);
+        }
+
+        .question-secondary-list {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .question-secondary-list li {
+            font-size: 0.9rem;
+            color: var(--muted);
+            padding-left: 1.5rem;
+            position: relative;
+            line-height: 1.6;
+        }
+
+        .question-secondary-list li::before {
+            content: '\2192';
+            position: absolute;
+            left: 0;
+            color: var(--accent);
+            font-family: 'Space Mono', monospace;
+            font-size: 0.75rem;
+            top: 0.05rem;
+        }
+
+        /* GAP */
+        .gap-text {
+            font-size: 1rem;
+            line-height: 1.85;
+            color: var(--text);
+        }
+
+        /* TRAJECTORY */
+        .trajectory {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .traj-item {
+            display: flex;
+            gap: 2rem;
+            align-items: flex-start;
+            padding: 1.6rem 0;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .traj-item:last-child { border-bottom: none; }
+
+        .traj-num {
+            font-family: 'Space Mono', monospace;
+            font-size: 0.48rem;
+            letter-spacing: 0.2em;
+            color: var(--muted);
+            min-width: 1.5rem;
+            padding-top: 0.25rem;
+            flex-shrink: 0;
+        }
+
+        .traj-label {
+            font-family: 'Syne', sans-serif;
+            font-size: 0.95rem;
+            font-weight: 700;
+            color: var(--text);
+            margin-bottom: 0.3rem;
+        }
+
+        .traj-detail {
+            font-size: 0.82rem;
+            color: var(--muted);
+            line-height: 1.6;
+        }
+
+        /* WORKS */
+        .works-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.2rem;
+            margin-bottom: 1.2rem;
+        }
+
+        .work-card {
+            background: var(--card-bg);
+            padding: 1.8rem;
+            border: 1px solid var(--border);
+        }
+
+        .work-tag {
+            font-family: 'Space Mono', monospace;
+            font-size: 0.42rem;
+            letter-spacing: 0.25em;
+            text-transform: uppercase;
+            color: var(--accent);
+            display: block;
+            margin-bottom: 0.85rem;
+        }
+
+        .work-title {
+            font-family: 'Syne', sans-serif;
+            font-size: 1rem;
+            font-weight: 700;
+            color: var(--text);
+            margin-bottom: 0.8rem;
+            line-height: 1.3;
+        }
+
+        .work-desc {
+            font-size: 0.8rem;
+            color: var(--muted);
+            line-height: 1.7;
+        }
+
+        .works-note {
+            font-family: 'Space Mono', monospace;
+            font-size: 0.48rem;
+            letter-spacing: 0.15em;
+            color: var(--muted);
+        }
+
+        /* FRAMEWORK */
+        .framework-grid {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .framework-item {
+            padding: 1.8rem 0;
+            border-bottom: 1px solid var(--border);
+            display: grid;
+            grid-template-columns: 200px 1fr;
+            gap: 2.5rem;
+            align-items: start;
+        }
+
+        .framework-item:last-child { border-bottom: none; }
+
+        .framework-name {
+            font-family: 'Syne', sans-serif;
+            font-size: 0.9rem;
+            font-weight: 700;
+            color: var(--text);
+            line-height: 1.35;
+        }
+
+        .framework-author {
+            font-family: 'Space Mono', monospace;
+            font-size: 0.42rem;
+            letter-spacing: 0.15em;
+            color: var(--accent);
+            margin-top: 0.4rem;
+            line-height: 1.6;
+        }
+
+        .framework-desc {
+            font-size: 0.85rem;
+            color: var(--muted);
+            line-height: 1.75;
+        }
+
+        /* METHODOLOGY */
+        .method-list {
+            list-style: none;
+            counter-reset: method;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .method-list li {
+            counter-increment: method;
+            padding: 1.2rem 0;
+            border-bottom: 1px solid var(--border);
+            display: flex;
+            gap: 1.8rem;
+            align-items: baseline;
+            font-size: 0.9rem;
+            color: var(--text);
+            line-height: 1.6;
+        }
+
+        .method-list li:last-child { border-bottom: none; }
+
+        .method-list li::before {
+            content: counter(method, decimal-leading-zero);
+            font-family: 'Space Mono', monospace;
+            font-size: 0.48rem;
+            color: var(--muted);
+            letter-spacing: 0.1em;
+            flex-shrink: 0;
+        }
+
+        /* ALIGNMENT */
+        .align-text {
+            font-size: 1rem;
+            line-height: 1.85;
+            color: var(--text);
+        }
+
+        .align-text + .align-text {
+            margin-top: 1.2rem;
+        }
+
+        /* FOOTER */
+        footer {
+            border-top: 1px solid var(--border);
+            padding: 3rem 2.5rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 1rem;
+            max-width: 760px;
+            margin: 0 auto;
+        }
+
+        .footer-contact {
+            font-family: 'Space Mono', monospace;
+            font-size: 0.52rem;
+            letter-spacing: 0.1em;
+            color: var(--muted);
+            display: flex;
+            flex-direction: column;
+            gap: 0.4rem;
+        }
+
+        .footer-contact a {
+            color: var(--text);
+            text-decoration: none;
+            transition: color 0.2s ease;
+        }
+
+        .footer-contact a:hover { color: var(--accent); }
+
+        .footer-year {
+            font-family: 'Space Mono', monospace;
+            font-size: 0.48rem;
+            letter-spacing: 0.2em;
+            color: var(--muted);
+        }
+
+        /* REVEAL */
+        .reveal {
+            opacity: 0;
+            transform: translateY(18px);
+            transition: opacity 0.65s ease, transform 0.65s ease;
+        }
+
+        .reveal.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* RESPONSIVE */
+        @media (max-width: 640px) {
+            nav { padding: 1rem 1.5rem; }
+            .hero { padding: 4rem 1.5rem 3rem; }
+            .container { padding: 0 1.5rem; }
+            .works-grid { grid-template-columns: 1fr; }
+            .framework-item { grid-template-columns: 1fr; gap: 0.6rem; }
+            footer { padding: 2rem 1.5rem; flex-direction: column; align-items: flex-start; }
+            .hero-meta { gap: 1.5rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <span class="nav-name">Bin Youn</span>
+        <span class="nav-label">PhD Research Pitch &middot; 2026</span>
+    </nav>
+
+    <main>
+
+        <!-- HERO -->
+        <div class="hero">
+            <span class="section-label">Working Title</span>
+            <h1 class="hero-title">Sensing<br><em>Otherwise</em></h1>
+            <p class="hero-identity">Practice-based researcher exploring how Eastern cosmotechnics and feminist STS can reshape interaction between human, technology, and environment.</p>
+            <div class="hero-meta">
+                <div class="hero-meta-item">
+                    Candidate
+                    <span>Bin Youn</span>
+                </div>
+                <div class="hero-meta-item">
+                    Institution
+                    <span>RMIT University Vietnam</span>
+                </div>
+                <div class="hero-meta-item">
+                    Type
+                    <span>Practice-Based PhD</span>
+                </div>
+                <div class="hero-meta-item">
+                    School
+                    <span>Communication &amp; Design</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- QUESTION -->
+        <section>
+            <div class="container reveal">
+                <span class="section-label">Research Question</span>
+                <p class="question-primary">How can Eastern cosmotechnics inform alternative paradigms for interactive media systems?</p>
+                <ul class="question-secondary-list">
+                    <li>How can environmental sensing systems embody cosmological relationality between human and non-human agents?</li>
+                    <li>How can participatory installations function as experimental interaction environments?</li>
+                    <li>How might non-Western cosmological perspectives challenge dominant human-centered interaction models?</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- GAP -->
+        <section>
+            <div class="container reveal">
+                <span class="section-label">Research Gap</span>
+                <p class="gap-text">Human-computer interaction has largely developed within Western technological paradigms emphasizing usability, efficiency, and optimization. Eastern cosmological thinking — organized around circulation, qi, elemental correspondence, and relational presence — offers a fundamentally different model for how bodies, environments, and technologies might meet. Yuk Hui's cosmotechnics argues that technology is never culturally neutral: Eastern technics carry their own cosmological logic, distinct from Western instrumentalism. Yet limited research has translated these frameworks into participatory media systems or installation practice. This research addresses that gap through making.</p>
+            </div>
+        </section>
+
+        <!-- TRAJECTORY -->
+        <section>
+            <div class="container reveal">
+                <span class="section-label">Practice Trajectory</span>
+                <div class="trajectory">
+                    <div class="traj-item">
+                        <span class="traj-num">01</span>
+                        <div>
+                            <div class="traj-label">Photography</div>
+                            <div class="traj-detail">MFA (CSULB) — lens-based image-making as foundation. Perception and framing as research methodology.</div>
+                        </div>
+                    </div>
+                    <div class="traj-item">
+                        <span class="traj-num">02</span>
+                        <div>
+                            <div class="traj-label">Installation</div>
+                            <div class="traj-detail">ㅁotherisland, Breathscape, Somatic Blinds — space, ecological sensitivity, embodied presence.</div>
+                        </div>
+                    </div>
+                    <div class="traj-item">
+                        <span class="traj-num">03</span>
+                        <div>
+                            <div class="traj-label">XR / Sensor Systems</div>
+                            <div class="traj-detail">Sacred Tree, Gelora Series — presence as data, ritual environments, augmented cartography.</div>
+                        </div>
+                    </div>
+                    <div class="traj-item">
+                        <span class="traj-num">04</span>
+                        <div>
+                            <div class="traj-label">AI Integration</div>
+                            <div class="traj-detail">Øryn/륜, Pulse and Cup — computational ecologies, relational sensing, AI as cosmotechnical medium.</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- WORKS -->
+        <section>
+            <div class="container reveal">
+                <span class="section-label">Key Works</span>
+                <div class="works-grid">
+                    <div class="work-card">
+                        <span class="work-tag">The Universe</span>
+                        <div class="work-title">&#216;ryn / &#47448;</div>
+                        <p class="work-desc">An AI-assisted media entity and relational archive being — built from East Asian cosmology and speculative ecology. Distributed across generative image, XR, voice, and installation. Not a character: a post-human presence and research vehicle. The universe within which the PhD practice operates.</p>
+                    </div>
+                    <div class="work-card">
+                        <span class="work-tag">Gear One &middot; SCD Seed Funded 2026</span>
+                        <div class="work-title">Pulse and Cup<br>(Circulation)</div>
+                        <p class="work-desc">Three handheld sensing devices inspired by cupping therapy (&#48512;&#54637; / gi&aacute;c h&#417;i). Each maps participant pulse and pressure to Five Elements (&#50724;&#54665;) colour logic — not Western RGB. Collective synchronisation shifts the room's ambient field. Cosmotechnics as interaction design. Presented VFCD September 2026.</p>
+                    </div>
+                </div>
+                <p class="works-note">Further installations to be developed during candidature.</p>
+            </div>
+        </section>
+
+        <!-- FRAMEWORK -->
+        <section>
+            <div class="container reveal">
+                <span class="section-label">Theoretical Framework</span>
+                <div class="framework-grid">
+                    <div class="framework-item">
+                        <div>
+                            <div class="framework-name">Cosmotechnics</div>
+                            <div class="framework-author">Yuk Hui</div>
+                        </div>
+                        <p class="framework-desc">Technology is cosmologically situated — never neutral. Eastern technics are organised around qi, circulation, and elemental correspondence rather than efficiency and control. &#50724;&#54665; (Five Elements) is not metaphor: it is a functional technical system with its own diagnostic and responsive logic.</p>
+                    </div>
+                    <div class="framework-item">
+                        <div>
+                            <div class="framework-name">Feminist STS</div>
+                            <div class="framework-author">Haraway &middot; Suchman &middot; Puig de la Bellacasa</div>
+                        </div>
+                        <p class="framework-desc">Technology as value-embedded, relational practice. Situated knowledge over claimed objectivity. Care, interdependence, and maintenance as design values rather than efficiency and optimization. Interaction as a distributed network of relations, not a discrete interface.</p>
+                    </div>
+                    <div class="framework-item">
+                        <div>
+                            <div class="framework-name">Posthumanism /<br>New Materialism</div>
+                            <div class="framework-author">Barad &middot; Braidotti</div>
+                        </div>
+                        <p class="framework-desc">Human and nonhuman agency as distributed and entangled. Environment as participant, not backdrop. Matter has agency. Interaction understood as ecological entanglement rather than subject-object exchange.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- METHODOLOGY -->
+        <section>
+            <div class="container reveal">
+                <span class="section-label">Methodology</span>
+                <ol class="method-list">
+                    <li>Practice-based research — artistic production as primary mode of inquiry</li>
+                    <li>Research through design — iterative prototyping as knowledge generation</li>
+                    <li>Installation prototyping — interactive environments as experimental platforms</li>
+                    <li>Sensor-based system development — physiological and environmental sensing</li>
+                    <li>Exhibition testing and audience observation — live interaction as data</li>
+                    <li>Documentation and critical reflection — autoethnographic analysis</li>
+                </ol>
+            </div>
+        </section>
+
+        <!-- ALIGNMENT -->
+        <section>
+            <div class="container reveal">
+                <span class="section-label">Research Fit</span>
+                <p class="align-text">Nancy Mauro-Flude's work on decolonising digital culturescapes, permacomputing, and feminist-led technological governance shares the fundamental premise of this research: that technology is not culturally neutral, and that alternative technological paradigms are both possible and necessary.</p>
+                <p class="align-text">Her current supervision of AI disalienation through creative practice, and her founding of espX — Ecofeminist Studio for Permacomputing — align directly with research grounded in non-Western technics, collective care, and low-tech sensing systems. This project sits at the intersection of those commitments.</p>
+            </div>
+        </section>
+
+    </main>
+
+    <footer>
+        <div class="footer-contact">
+            <a href="mailto:bin.youn@rmit.edu.vn">bin.youn@rmit.edu.vn</a>
+            <a href="https://binyoun.com" target="_blank" rel="noreferrer">binyoun.com</a>
+        </div>
+        <span class="footer-year">RMIT University Vietnam &middot; 2026</span>
+    </footer>
+
+    <script>
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, { threshold: 0.08 });
+
+        document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+    </script>
+
+</body>
+</html>
