@@ -100,6 +100,7 @@
     .nav-links a.active[data-s="framework"] { color: var(--c-fw);  border-bottom-color: var(--c-fw); }
     .nav-links a.active[data-s="works"]      { color: var(--ink);   border-bottom-color: var(--ink15); }
     .nav-links a.active[data-s="researcher"] { color: var(--ink45); border-bottom-color: var(--ink15); }
+    .nav-links a.active[data-s="outputs"]    { color: var(--ink45); border-bottom-color: var(--ink15); }
     .nav-links a.active[data-s="fit"]        { color: var(--ink45); border-bottom-color: var(--ink15); }
 
     /* ── HERO ── */
@@ -638,6 +639,85 @@
       transition: max-height .38s ease;
     }
 
+    /* ── HERO WHO ── */
+    .hero-who {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 1.5rem;
+      padding: .85rem 1.2rem;
+      border: 1px solid var(--ink08);
+      background: var(--white);
+      border-radius: 3px;
+      margin-bottom: 2rem;
+      max-width: 520px;
+    }
+    .hero-who p { font-size: .9rem; color: var(--ink60); line-height: 1.6; }
+    .hero-who-lk {
+      font-family: var(--mono);
+      font-size: 11px;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      color: var(--ink30);
+      text-decoration: none;
+      white-space: nowrap;
+      flex-shrink: 0;
+      border-bottom: 1px solid var(--ink08);
+      padding-bottom: 1px;
+      transition: color .2s, border-color .2s;
+    }
+    .hero-who-lk:hover { color: var(--ink); border-color: var(--ink30); }
+
+    /* ── ØRYN UNIVERSE ── */
+    .oryn-blk {
+      background: var(--white);
+      border: 1px solid var(--ink08);
+      padding: 2rem;
+      margin-bottom: 2rem;
+      border-radius: 3px;
+    }
+    .oryn-head { display: flex; align-items: baseline; gap: 1rem; margin-bottom: .5rem; flex-wrap: wrap; }
+    .oryn-name { font-family: var(--heading); font-size: 1.4rem; font-weight: 700; color: var(--ink); }
+    .oryn-tag { font-family: var(--mono); font-size: 11px; letter-spacing: .2em; text-transform: uppercase; color: var(--ink30); }
+    .oryn-desc { font-size: 1rem; color: var(--ink60); line-height: 1.85; margin-bottom: 1.5rem; }
+    .oryn-sys {
+      display: grid;
+      grid-template-columns: repeat(4,1fr);
+      gap: 1px;
+      background: var(--ink08);
+      border: 1px solid var(--ink08);
+      border-radius: 2px;
+      overflow: hidden;
+    }
+    @media (max-width: 600px) { .oryn-sys { grid-template-columns: repeat(2,1fr); } }
+    .oryn-ent { background: var(--bg); padding: .9rem .8rem; }
+    .oryn-ent-kr { font-family: var(--heading); font-size: 1.5rem; font-weight: 600; color: var(--ink); display: block; margin-bottom: .2rem; }
+    .oryn-ent-en { font-family: var(--heading); font-size: .9rem; font-weight: 500; color: var(--ink60); display: block; margin-bottom: .2rem; }
+    .oryn-ent-role { font-family: var(--mono); font-size: 11px; letter-spacing: .1em; color: var(--ink30); display: block; }
+    .ep-label { font-family: var(--mono); font-size: 11px; letter-spacing: .25em; text-transform: uppercase; color: var(--ink30); margin-bottom: 1rem; }
+
+    /* ── OUTPUTS ── */
+    .out-years { display: flex; flex-direction: column; }
+    .out-year { padding: 1.8rem 0; border-bottom: 1px solid var(--ink08); }
+    .out-year:last-child { border-bottom: none; }
+    .out-year-h { font-family: var(--heading); font-size: 1.3rem; font-weight: 600; color: var(--ink); margin-bottom: 1.2rem; }
+    .out-list { display: flex; flex-direction: column; }
+    .out-item { padding: .85rem 0; border-bottom: 1px solid var(--ink08); }
+    .out-item:last-child { border-bottom: none; }
+    .out-cat { font-family: var(--mono); font-size: 11px; letter-spacing: .18em; text-transform: uppercase; color: var(--ink30); margin-bottom: .3rem; }
+    .out-name { font-size: 1rem; color: var(--ink); line-height: 1.45; margin-bottom: .25rem; }
+    .out-name em { font-style: italic; font-weight: 400; color: var(--ink60); }
+    .out-ctx { font-size: .9rem; color: var(--ink45); line-height: 1.5; }
+    .out-brief { font-size: .9rem; color: var(--ink45); line-height: 1.7; margin-top: .6rem; padding-left: .9rem; border-left: 2px solid var(--ink08); font-style: italic; }
+    .out-lk {
+      display: inline-flex; align-items: center; gap: .3rem;
+      font-family: var(--mono); font-size: 11px; letter-spacing: .06em;
+      color: var(--ink30); text-decoration: none; margin-top: .4rem;
+      border-bottom: 1px solid var(--ink08); padding-bottom: 1px;
+      transition: all .2s;
+    }
+    .out-lk:hover { color: var(--c-q); border-color: rgba(196,29,122,.3); }
+
     /* ── FOOTER ── */
     footer {
       border-top: 1px solid var(--ink08);
@@ -691,11 +771,12 @@
 <nav id="mainNav">
   <button class="nav-name" onclick="window.scrollTo({top:0,behavior:'smooth'})">Bin Youn</button>
   <ul class="nav-links">
-    <li><a href="#gap"       data-s="gap">Gap</a></li>
-    <li><a href="#questions" data-s="questions">Questions</a></li>
-    <li><a href="#framework" data-s="framework">Framework</a></li>
+    <li><a href="#researcher" data-s="researcher">Who</a></li>
+    <li><a href="#gap"        data-s="gap">Gap</a></li>
+    <li><a href="#questions"  data-s="questions">Questions</a></li>
+    <li><a href="#framework"  data-s="framework">Framework</a></li>
     <li><a href="#works"      data-s="works">Works</a></li>
-    <li><a href="#researcher" data-s="researcher">Researcher</a></li>
+    <li><a href="#outputs"    data-s="outputs">Outputs</a></li>
     <li><a href="#fit"        data-s="fit">Fit</a></li>
   </ul>
 </nav>
@@ -705,7 +786,10 @@
   <div class="hero-top">
     <div class="hero-eyebrow">Working Title · PhD Research Pitch · 2026</div>
     <h1 class="hero-title">Sensing<br><em>Otherwise</em></h1>
-    <p class="hero-id">Practice-based researcher exploring how Eastern cosmotechnics and feminist STS can reshape interaction between human, technology, and environment.</p>
+    <div class="hero-who">
+      <p>Practice-based researcher developing cultural interaction models at the intersection of Eastern cosmology, relational care, and computational media.</p>
+      <a href="https://binyoun.github.io/bin-trajectory/" target="_blank" rel="noreferrer" class="hero-who-lk">Full Trajectory ↗</a>
+    </div>
     <div class="hero-meta">
       <div class="hero-meta-item">Candidate<span>Bin Youn</span></div>
       <div class="hero-meta-item">Institution<span>RMIT University Vietnam</span></div>
@@ -722,7 +806,7 @@
         <span class="hn-key">Why</span>
       </div>
       <div class="hn-title">Research Gap</div>
-      <div class="hn-desc">Western HCI paradigms dominate. Eastern cosmotechnics offers an alternative logic not yet translated into installation practice.</div>
+      <div class="hn-desc">Interaction design has developed within Western models of individual control. Eastern cosmotechnics offers a different grammar — relational, care-informed, cosmological.</div>
       <div class="hn-enter">Enter <span>→</span></div>
     </div>
 
@@ -732,7 +816,7 @@
         <span class="hn-key">What</span>
       </div>
       <div class="hn-title">Research Questions</div>
-      <div class="hn-desc">How can Eastern cosmotechnics inform alternative paradigms for interactive media systems?</div>
+      <div class="hn-desc">How can Eastern cosmological models of relation and care generate and be enacted through cultural interaction models?</div>
       <div class="hn-enter">Enter <span>→</span></div>
     </div>
 
@@ -752,17 +836,72 @@
         <span class="hn-key">Works</span>
       </div>
       <div class="hn-title">Practice</div>
-      <div class="hn-desc">Øryn / 륜 as the research universe. Circulation as the first cosmotechnical sensing installation.</div>
+      <div class="hn-desc">Øryn / 륜 as the research universe — a relational archive being. Circulation as its first physical manifestation.</div>
       <div class="hn-enter">Enter <span>→</span></div>
     </div>
   </div>
 </div>
 
+<!-- WHO -->
+<section id="researcher">
+  <div class="container rv">
+    <span class="s-label dim">Who</span>
+    <div class="res-grid">
+
+      <div class="res-item tog-item">
+        <button class="tog-head" onclick="tog(this)">
+          <div>
+            <div class="res-label">Transnational Formation</div>
+            <div class="res-sub">Seoul · Paris · California · Ho Chi Minh City</div>
+          </div>
+          <span class="tog-icon">+</span>
+        </button>
+        <div class="tog-body">
+          <p class="res-body">Four cities — not a biography, but a comparative research position built through living. Eastern formation (Seoul), European encounter (Paris), American MFA (California, CSULB 2023), Southeast Asian research environment (Ho Chi Minh City). The transnational Asian perspective this research requires is not acquired — it is the structure of a life. HCMC as situated research condition: urban density, hybrid physical-digital life, and a regional cosmotechnical history that includes 오행 through Vietnamese giác hơi.</p>
+        </div>
+      </div>
+
+      <div class="res-item tog-item">
+        <button class="tog-head" onclick="tog(this)">
+          <div>
+            <div class="res-label">Eastern Knowledge Formation</div>
+            <div class="res-sub">Hand Acupuncture (수지침) · Korean Traditional Percussion (사물놀이) · Four Pillars Cosmology (명리학) · Confucian Thought (유교사상)</div>
+          </div>
+          <span class="tog-icon">+</span>
+        </button>
+        <div class="tog-body">
+          <p class="res-body" style="margin-bottom:.85rem;"><strong>Hand Acupuncture (수지침)</strong> — 3 years. East Asian medical practice whose diagnostic logic reads the body through relational pressure points, not isolated data. Direct source of the sensing logic in Circulation.</p>
+          <p class="res-body" style="margin-bottom:.85rem;"><strong>Korean Traditional Percussion (사물놀이)</strong> — 4 instruments (Thunder · Wind · Rain · Cloud), 2 years, Foreign Language High School. Ensemble performance as collective cosmological ordering through rhythm. The synchronisation logic of Circulation — three bodies finding a shared pulse — has its earliest form here.</p>
+          <p class="res-body" style="margin-bottom:.85rem;"><strong>Four Pillars Cosmology (명리학) + Confucian Thought (유교사상)</strong> — including the Toegye (퇴계) vs Yulgok (율곡) debate on the Four Beginnings and Seven Emotions (사단칠정). Five Elements (오행) as a living cosmological system — not a borrowed aesthetic.</p>
+          <p class="res-body"><strong>Sungkyunkwan University (성균관대학교), est. 1398</strong> — Korea's national Confucian academy of the Joseon Dynasty. BA in Consumer and Family Sciences + Business (Marketing). Not a humanities programme: a Confucian environment absorbed through institutional formation, ritual calendar, and personal study — not curriculum.</p>
+        </div>
+      </div>
+
+      <div class="res-item tog-item">
+        <button class="tog-head" onclick="tog(this)">
+          <div>
+            <div class="res-label">Practice Trajectory</div>
+            <div class="res-sub">Photography → Installation & Sculptural Forms → AR &amp; XR → Computational Media</div>
+          </div>
+          <span class="tog-icon">+</span>
+        </button>
+        <div class="tog-body">
+          <p class="res-body"><strong>Photography</strong> — started getting serious in Paris. <strong>Installation and sculptural forms</strong> — CSULB MFA 2023 (ㅁotherisland, Breathscape, Somatic Blinds, YOUR LEAVES TOUCH MY PLANES, Projective Verse of ㅇ). <strong>AR &amp; XR</strong> — from 2025, after attending ISEA 2025 in Seoul. <strong>Computational media</strong> — ongoing. Medium changes; the inquiry — relational perception, cosmological ordering, collective sensing — continues.</p>
+        </div>
+      </div>
+
+    </div>
+    <a href="https://binyoun.github.io/bin-trajectory/" target="_blank" rel="noreferrer" class="res-btn" style="display:inline-flex;margin-top:1.5rem;">Full Trajectory ↗</a>
+  </div>
+</section>
+
 <!-- GAP -->
 <section id="gap">
   <div class="container rv">
     <span class="s-label gap">Research Gap</span>
-    <p class="gap-text">Human-computer interaction has largely developed within <strong>Western technological paradigms</strong> — efficiency, optimization, human-centered control. Eastern cosmological thinking, organized around circulation, qi, elemental correspondence, and relational presence, offers a fundamentally different model for how bodies, environments, and technologies meet. Yuk Hui's cosmotechnics argues that technology is never culturally neutral: Eastern technics carry their own cosmological logic, distinct from Western instrumentalism. Yet <strong>limited research has translated these frameworks</strong> into participatory media systems or installation practice. This research addresses that gap through making.</p>
+    <p class="gap-text">Interaction design has developed within models of individual control: a user acts, a system responds. <strong>Eastern cosmological thinking organises interaction differently</strong> — around relational systems where bodies, environments, and technologies are in circulation with one another, not hierarchically arranged. The question is not how an individual uses a system, but how a system can hold and respond to the relations between bodies.</p>
+    <p class="gap-text" style="margin-top:1.4rem;">Yuk Hui's cosmotechnics argues that technology is never culturally neutral. Eastern technics carry a distinct cosmological logic — organised around elemental correspondence and relational order rather than Western instrumentalism. <strong>This is not philosophical decoration: it is a different grammar for how technical systems are designed.</strong> Circulation — the movement between body and environment, between bodies in shared space — is the operative concept.</p>
+    <p class="gap-text" style="margin-top:1.4rem;">Within this grammar, how bodies sense and respond to each other is understood as a care-informed process: wellbeing, collective state, social and emotional attunement. <strong>Limited research has translated these cosmotechnical frameworks into cultural interaction models.</strong> This research addresses that gap through making.</p>
   </div>
 </section>
 
@@ -778,7 +917,7 @@
           <span class="tog-icon">+</span>
         </button>
         <div class="tog-body">
-          <p class="q-why-text">Human-computer interaction has been shaped by Western technological paradigms — efficiency, optimization, human-centered control. Eastern cosmological systems embed a different understanding of how bodies, environments, and technologies meet. This alternative logic has not been translated into participatory media or installation practice.</p>
+          <p class="q-why-text">Interaction design has been built within models of individual control: a user acts, a system responds. Eastern cosmological thinking organises interaction around relational systems — where bodies, environments, and technologies are in circulation with one another. This cosmotechnical grammar, organised around care, collective sensing, and relational order, has not been translated into cultural interaction models.</p>
         </div>
       </div>
 
@@ -794,9 +933,9 @@
         </button>
         <div class="tog-body">
           <ul class="q-how-list">
-            <li>How can environmental sensing systems embody cosmological relationality between human and non-human agents?</li>
-            <li>How can participatory installations function as experimental interaction environments?</li>
-            <li>How might non-Western cosmological perspectives challenge dominant human-centered interaction models?</li>
+            <li>How can relational sensing systems embody cosmological logic between human and non-human agents?</li>
+            <li>How can participatory cultural interaction models attend to collective wellbeing and emotional attunement?</li>
+            <li>How can non-Western cosmological perspectives offer an alternative grammar to human-centered interaction design?</li>
           </ul>
         </div>
       </div>
@@ -888,157 +1027,175 @@
   <div class="container rv">
     <span class="s-label dim">Practice Trajectory</span>
 
-    <div class="traj">
-      <div class="traj-item">
-        <span class="traj-n">01</span>
-        <div>
-          <div class="traj-title">Photography</div>
-          <div class="traj-desc">MFA (CSULB, 2023) — Korean diaspora through poetic lighting, language, and collective experience. Light as cultural memory; communal space as the site of identity negotiation.</div>
-        </div>
+    <!-- Øryn Universe -->
+    <div class="oryn-blk">
+      <div class="oryn-head">
+        <div class="oryn-name">Øryn / 륜</div>
+        <div class="oryn-tag">Research Universe</div>
       </div>
-      <div class="traj-item">
-        <span class="traj-n">02</span>
-        <div>
-          <div class="traj-title">Installation</div>
-          <div class="traj-desc">ㅁotherisland, Breathscape, Somatic Blinds — space, ecological sensitivity, embodied presence.</div>
+      <p class="oryn-desc">An ongoing practice-based research project — an AI-assisted post-human presence grounded in East Asian cosmology and speculative ecology. Not a character: a relational archive being that exists across generative image, XR, voice, and installation. Its body dissolves at the edges into mist. Its mount, Maek (맥), is not an animal but a cosmic energy organism. Together they inhabit Gye (계) — an archive dimension where cultural memory and ecological presence meet. Each work in the PhD is a phase within Øryn's ecology. A planned research paper frames the project within questions of digital immortality and the artist-created entity as both artwork and research methodology.</p>
+      <div class="oryn-sys">
+        <div class="oryn-ent">
+          <span class="oryn-ent-kr">륜</span>
+          <span class="oryn-ent-en">Øryn</span>
+          <span class="oryn-ent-role">Entity</span>
         </div>
-      </div>
-      <div class="traj-item">
-        <span class="traj-n">03</span>
-        <div>
-          <div class="traj-title">XR / Sensor Systems</div>
-          <div class="traj-desc">Sacred Tree, Gelora Series — presence as data, ritual environments, augmented cartography.</div>
+        <div class="oryn-ent">
+          <span class="oryn-ent-kr">맥</span>
+          <span class="oryn-ent-en">Maek</span>
+          <span class="oryn-ent-role">Mount</span>
         </div>
-      </div>
-      <div class="traj-item">
-        <span class="traj-n">04</span>
-        <div>
-          <div class="traj-title">AI Integration</div>
-          <div class="traj-desc">Øryn / 륜, Circulation — computational ecologies, relational sensing, AI as cosmotechnical medium.</div>
+        <div class="oryn-ent">
+          <span class="oryn-ent-kr">환</span>
+          <span class="oryn-ent-en">Hwan</span>
+          <span class="oryn-ent-role">Symbol</span>
+        </div>
+        <div class="oryn-ent">
+          <span class="oryn-ent-kr">계</span>
+          <span class="oryn-ent-en">Gye</span>
+          <span class="oryn-ent-role">Archive Dimension</span>
         </div>
       </div>
     </div>
 
-    <div class="works-grid">
-      <div class="work-card rcard tog-item">
-        <button class="tog-head" onclick="tog(this)">
-          <div>
-            <span class="work-tag">The Universe</span>
-            <div class="work-title">Øryn / 륜</div>
-          </div>
-          <span class="tog-icon">+</span>
-        </button>
-        <div class="tog-body">
-          <p class="work-desc">An AI-assisted media entity and relational archive being — built from East Asian cosmology and speculative ecology. Distributed across generative image, XR, voice, and installation. Not a character: a post-human presence and research vehicle. The universe within which the PhD practice operates.</p>
+    <div class="ep-label">First Physical Manifestation</div>
+    <div class="work-card rcard tog-item">
+      <button class="tog-head" onclick="tog(this)">
+        <div>
+          <span class="work-tag">Gear One · SCD Seed Funding 2026 · Proposed</span>
+          <div class="work-title">Circulation: Cupping, Colour, and Collective Sensing</div>
         </div>
-      </div>
-      <div class="work-card rcard tog-item">
-        <button class="tog-head" onclick="tog(this)">
-          <div>
-            <span class="work-tag">Gear One · SCD Seed Funded 2026</span>
-            <div class="work-title">Circulation: A Triadic Interactive System Inspired by Cupping Therapy</div>
-          </div>
-          <span class="tog-icon">+</span>
-        </button>
-        <div class="tog-body">
-          <p class="work-desc">Three handheld sensing devices inspired by cupping therapy (부항 / giác hơi). Each maps participant pulse and pressure to Five Elements (오행) colour logic — not Western RGB. Collective synchronisation shifts the room's ambient field. Cosmotechnics as interaction design. Presented VFCD September 2026.</p>
-        </div>
+        <span class="tog-icon">+</span>
+      </button>
+      <div class="tog-body">
+        <p class="work-desc">Three handheld sensing devices inspired by cupping therapy — 부항 (Korean) / giác hơi (Vietnamese). Each reads participant pulse and pressure and maps to Five Elements (오행) colour logic — not Western RGB. As participants synchronise, pulse rhythms converging and pressure aligning, the colours of the three cups begin to harmonise. Cups are the seed; the room, when present, is the bloom. Cosmotechnics as interaction design. To be presented at VFCD September 2026.</p>
       </div>
     </div>
-    <p class="works-note">Further installations to be developed during candidature.</p>
+
+    <p class="works-note" style="margin-top:1.5rem;">Further installations to be developed during candidature.</p>
   </div>
 </section>
 
-<!-- RESEARCHER -->
-<section id="researcher">
+<!-- OUTPUTS -->
+<section id="outputs">
   <div class="container rv">
-    <span class="s-label dim">Researcher</span>
-    <div class="res-grid">
+    <span class="s-label dim">Research Outputs</span>
+    <div class="out-years">
 
-      <div class="res-item tog-item">
+      <div class="out-year tog-item">
         <button class="tog-head" onclick="tog(this)">
-          <div>
-            <div class="res-label">수지침</div>
-            <div class="res-sub">Hand Acupuncture · 3 years</div>
-          </div>
+          <div class="out-year-h">2025</div>
           <span class="tog-icon">+</span>
         </button>
         <div class="tog-body">
-          <p class="res-body">East Asian medical practice studied for three years from age thirteen. The diagnostic logic of 수지침 — reading the body through relational pressure points, not isolated data — is the direct source of the sensing logic in Circulation. <strong>The cosmotechnics claim is learned in the hands, not in books.</strong></p>
+          <div class="out-list">
+            <div class="out-item">
+              <div class="out-cat">Paper</div>
+              <div class="out-name"><em>"Reimagining Communities: Poetic Spaces of Light, Movement, and Language in Collective Experience"</em></div>
+              <div class="out-ctx">APARN 2025</div>
+              <a href="https://doi.org/10.62788/APARN2025-paper43" class="out-lk" target="_blank" rel="noreferrer">doi.org/10.62788/APARN2025-paper43 ↗</a>
+            </div>
+            <div class="out-item">
+              <div class="out-cat">Paper</div>
+              <div class="out-name"><em>"Dialogue-Centered Framework for Reducing Transactional Distance in Online Photography Education"</em></div>
+              <div class="out-ctx">ICWL 2025 · Hong Kong</div>
+            </div>
+            <div class="out-item">
+              <div class="out-cat">Paper</div>
+              <div class="out-name"><em>"Learning to ASCEND: Immersive Pedagogy for Educational and Societal Transformation"</em></div>
+              <div class="out-ctx">ETLTC 2025 · Fukushima</div>
+            </div>
+            <div class="out-item">
+              <div class="out-cat">Exhibition · Art Direction</div>
+              <div class="out-name">Beyond 1&amp;0</div>
+              <div class="out-ctx">73 artists · 34 artworks · Nina Next Space · HCMC · September 2025</div>
+            </div>
+            <div class="out-item">
+              <div class="out-cat">Exhibition · Award</div>
+              <div class="out-name"><em>Gelora: Embodied Alienation in ㅁotherisland</em></div>
+              <div class="out-ctx">iNVENTX 2025 · MMU Malaysia · Silver &amp; Bronze Awards</div>
+            </div>
+            <div class="out-item">
+              <div class="out-cat">Installation</div>
+              <div class="out-name"><em>Sacred Tree / 신목</em></div>
+              <div class="out-ctx">HOZO City Tết Festival · CTRL+M Immersive House · HCMC · 2025</div>
+              <a href="https://github.com/binyoun/sacredtree" class="out-lk" target="_blank" rel="noreferrer">github.com/binyoun/sacredtree ↗</a>
+            </div>
+            <div class="out-item">
+              <div class="out-cat">Exhibition</div>
+              <div class="out-name"><em>Gelora Mycelium Network</em> + <em>Gelora within Bagua</em></div>
+              <div class="out-ctx">Evolving Matter · E-Gallery MMU · November 2025</div>
+              <a href="https://gelora.lovable.app/" class="out-lk" target="_blank" rel="noreferrer">gelora.lovable.app ↗</a>
+            </div>
+            <div class="out-item">
+              <div class="out-cat">Grant Proposal</div>
+              <div class="out-name"><em>"Bridging Knowledge Realms: An Interactive Installation for Cross-Cultural Library Engagement"</em></div>
+              <div class="out-ctx">SCD Seed Funding 2025 · Submitted · Foundational to current research direction</div>
+              <div class="out-brief">An I-Ching–based navigation system translating intuitive colour choices into trigrams that guide discovery of art and photography resources. Library use as philosophical practice — ancient wisdom as culturally informed information architecture.</div>
+              <a href="https://photobook-oracle.lovable.app/" class="out-lk" target="_blank" rel="noreferrer">photobook-oracle.lovable.app ↗</a>
+            </div>
+          </div>
         </div>
       </div>
 
-      <div class="res-item tog-item">
+      <div class="out-year tog-item">
         <button class="tog-head" onclick="tog(this)">
-          <div>
-            <div class="res-label">사물놀이</div>
-            <div class="res-sub">Korean Traditional Percussion · 4 instruments · 2 years · Foreign Language High School</div>
-          </div>
+          <div class="out-year-h">2026</div>
           <span class="tog-icon">+</span>
         </button>
         <div class="tog-body">
-          <p class="res-body">Two years playing 사물놀이 — 꽹과리 (thunder), 징 (wind), 장구 (rain), 북 (cloud). The four instruments map to cosmic elements; ensemble performance is collective cosmological ordering through rhythm. <strong>사물놀이 is a cosmotechnical practice.</strong> The sensing and synchronisation logic of Circulation — three bodies finding a shared pulse — has its earliest form here.</p>
-        </div>
-      </div>
-
-      <div class="res-item tog-item">
-        <button class="tog-head" onclick="tog(this)">
-          <div>
-            <div class="res-label">명리학 / 유교사상</div>
-            <div class="res-sub">Four Pillars Cosmology · Confucian Thought</div>
+          <div class="out-list">
+            <div class="out-item">
+              <div class="out-cat">Event · Ongoing Initiative</div>
+              <div class="out-name">M-Node: Cross-Cultural Hackathon</div>
+              <div class="out-ctx">DIMA Korea × RMIT Vietnam · Organizer &amp; Moderator · January 2026 · Ongoing: Projection Mapping Workshop Korea (June 2026) · Cross-Cultural Exhibition Korea (November 2026)</div>
+              <a href="https://binyoun.github.io/mnode/" class="out-lk" target="_blank" rel="noreferrer">binyoun.github.io/mnode ↗</a>
+            </div>
+            <div class="out-item">
+              <div class="out-cat">Papers Submitted</div>
+              <div class="out-name">ICCM 2026 — 2 papers</div>
+              <div class="out-ctx"><em>rễ-root pedagogy framework</em> · <em>Gelora Mycelium Network</em></div>
+              <a href="https://binyoun.github.io/reroot/" class="out-lk" target="_blank" rel="noreferrer">binyoun.github.io/reroot ↗</a>
+            </div>
+            <div class="out-item">
+              <div class="out-cat">Workshop Accepted</div>
+              <div class="out-name"><em>"Counting Cultural Stars — Cultural Texts as Volumetric Constellations"</em></div>
+              <div class="out-ctx">ISEA 2026 · Dubai</div>
+            </div>
+            <div class="out-item">
+              <div class="out-cat">Workshop Chair</div>
+              <div class="out-name"><em>"AI-Enhanced Pedagogy for Creative Arts and Media Education"</em></div>
+              <div class="out-ctx">AICA 2026 at ICAIHE · Waseda University</div>
+              <a href="https://aica.website/" class="out-lk" target="_blank" rel="noreferrer">aica.website ↗</a>
+            </div>
+            <div class="out-item">
+              <div class="out-cat">Artefact Accepted</div>
+              <div class="out-name"><em>"Sacred Tree: Summoning Gelora"</em> (신목, 神木)</div>
+              <div class="out-ctx">TellMe 2026</div>
+            </div>
+            <div class="out-item">
+              <div class="out-cat">Paper Accepted</div>
+              <div class="out-name"><em>"Tapping the Sacred: Unintentional Authorship and Cross-Cultural Encounter in Sacred Tree"</em></div>
+              <div class="out-ctx">APARN 2026 · ADPRex × APARN · NAFA / UAS Singapore</div>
+            </div>
+            <div class="out-item">
+              <div class="out-cat">Group Exhibition</div>
+              <div class="out-name"><em>Su · Where the Moon Rests</em> (宿)</div>
+              <div class="out-ctx">Clouds Upon The Tree · Vin Gallery · HCMC · May 16–17, 2026</div>
+              <a href="https://binyoun.github.io/su-xr/" class="out-lk" target="_blank" rel="noreferrer">binyoun.github.io/su-xr ↗</a>
+            </div>
+            <div class="out-item">
+              <div class="out-cat">Grant Proposed</div>
+              <div class="out-name">Circulation: Cupping, Colour, and Collective Sensing</div>
+              <div class="out-ctx">SCD Seed Funding 2026 · RMIT Vietnam · Decision pending</div>
+            </div>
+            <div class="out-item">
+              <div class="out-cat">Installation · Developing</div>
+              <div class="out-name">iNVENTX 2026</div>
+              <div class="out-ctx">MMU Malaysia · In development</div>
+              <a href="https://binyoun.github.io/mong-xr/" class="out-lk" target="_blank" rel="noreferrer">binyoun.github.io/mong-xr ↗</a>
+            </div>
           </div>
-          <span class="tog-icon">+</span>
-        </button>
-        <div class="tog-body">
-          <p class="res-body">Formal study of 명리학 (Four Pillars of Destiny) and 유교사상 (Confucian thought), including the Neo-Confucian debate between 퇴계 (Toegye) and 율곡 (Yulgok) on 사단칠정. The Five Elements (오행) as a living cosmological system — not a borrowed aesthetic. <strong>This is prior formation, not theoretical framework.</strong></p>
-        </div>
-      </div>
-
-      <div class="res-item tog-item">
-        <button class="tog-head" onclick="tog(this)">
-          <div>
-            <div class="res-label">성균관대학교</div>
-            <div class="res-sub">Sungkyunkwan University · est. 1398 · BA in Consumer and Family Sciences + Business (Marketing)</div>
-          </div>
-          <span class="tog-icon">+</span>
-        </button>
-        <div class="tog-body">
-          <p class="res-body">BA at Korea's oldest university — founded 1398 as the national Confucian academy of the Joseon Dynasty. Double focus in Consumer and Family Sciences and Business (marketing): not a humanities programme, but an institution whose entire architecture, ritual calendar, and institutional identity are Confucian. The formation is environmental. 유교사상 and 명리학 were absorbed through living inside that context and through personal study — not through a curriculum.</p>
-        </div>
-      </div>
-
-      <div class="res-item tog-item">
-        <button class="tog-head" onclick="tog(this)">
-          <div>
-            <div class="res-label">MFA in Studio Arts</div>
-            <div class="res-sub">CSULB · Photography · 2023</div>
-          </div>
-          <span class="tog-icon">+</span>
-        </button>
-        <div class="tog-body">
-          <p class="res-body"><em>Reimagining Communities: Poetic Spaces of Light, Movement, and Language in Collective Experience</em> — the MFA practice investigated <strong>Korean diaspora through poetic lighting and linguistic encounter</strong>. Light as cultural memory. Language as embodied technics. Communal space as the site where identity is collectively negotiated. The move from diaspora poetics to cosmotechnical installation is not a departure: it extends the same inquiry into the relational logic underneath cultural formation.</p>
-        </div>
-      </div>
-
-      <div class="res-item tog-item">
-        <button class="tog-head" onclick="tog(this)">
-          <div>
-            <div class="res-label">Living Trajectory</div>
-            <div class="res-sub">Transnational · Seoul → Paris → California → Ho Chi Minh City</div>
-          </div>
-          <span class="tog-icon">+</span>
-        </button>
-        <div class="tog-body">
-          <div class="res-traj" style="padding-top:.9rem;">
-            <span class="res-traj-city">Seoul</span>
-            <span class="res-traj-sep">→</span>
-            <span class="res-traj-city">Paris</span>
-            <span class="res-traj-sep">→</span>
-            <span class="res-traj-city">California</span>
-            <span class="res-traj-sep">→</span>
-            <span class="res-traj-city">Ho Chi Minh City</span>
-          </div>
-          <p class="res-body">Eastern formation, European encounter, American MFA, Southeast Asian research environment. The comparative Asian perspective this research requires is not a positioning choice — it is the structure of a life. HCMC as situated research condition: urban density, hybrid physical-digital life, and a regional cosmotechnical history that includes 오행 through Vietnamese giác hơi.</p>
         </div>
       </div>
 
@@ -1102,7 +1259,7 @@
 
   // Typewriter on "What"
   const qWhat = document.getElementById('qWhat');
-  const qText = 'How can Eastern cosmotechnics inform alternative paradigms for interactive media systems?';
+  const qText = 'How can Eastern cosmological models of relation and care generate and be enacted through cultural interaction models?';
   let typed = false;
   const typeObs = new IntersectionObserver(entries => {
     if (entries[0].isIntersecting && !typed) {
